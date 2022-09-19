@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap');
+
+:root {
+    --Very-dark-blue: hsl(233, 47%, 7%);
+    --Dark-desaturated-blue: hsl(244, 38%, 16%);
+    --Soft-violet: hsl(277, 64%, 61%);
+    --White: hsl(0, 0%, 100%);
+    --Transparent-white: hsla(0, 0%, 100%, 0.75);
+    --Slightly-transparent-white: hsla(0, 0%, 100%, 0.6);
+}
+
+body {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+    margin: 0;
+    font-size: 15px;
+    background-color: var(--Very-dark-blue);
+    color: var(--Transparent-white);
+    font-family: 'Inter';
+}
+
+main {max-width: 80vw;}
+
+.card {
+    display: flex;
+    flex-grow: 1;
+    background-color: var(--Dark-desaturated-blue);
+    border-radius: .5rem;
+}
+
+.hero {
+    order: 1;
+    background-repeat: no-repeat;
+}
+
+.overlay {
+    background-color: var(--Soft-violet);
+}
+
+.stats {
+    order: 2;
+}
+
+@media (orientation: portrait) {
+    .card {flex-direction: column; text-align: center;}
+    .hero {min-height: 15rem; background: linear-gradient(0deg, hsla(277, 64%, 61%, .7), hsla(277, 64%, 61%, .7)), url('images/image-header-mobile.jpg'); background-size: 100%; border-radius: .5rem .5rem 0 0;}
+    .stats {padding: 2rem;}
+}
+
+@media (orientation: landscape) {
+    .card {flex-direction: row-reverse;}
+    .hero {min-width: 50%; background: linear-gradient(0deg, hsla(277, 64%, 61%, .7), hsla(277, 64%, 61%, .7)), url('images/image-header-desktop.jpg'); background-size: cover; border-radius: 0 .5rem .5rem 0;}
+    .stats {padding: 4rem;
+        display: grid;
+        grid-template-areas: 
+            "h h h"
+            "p p p"
+            "s s s";}
+}
+
+
+
+h1 { color: var(--White); margin: 0; font-size: 1.8rem; grid-area: h;}
+span {color: var(--Soft-violet);}
+p {line-height: 1.5; font-family: 'lexend deca';  grid-area: p;}
+
+.stat1 {margin: 2em 0;  grid-area: s/1;}
+.stat2 {margin: 2em 0;  grid-area: s/2;}
+.stat3 {margin: 2em 0;  grid-area: s/3;}
+.stat__num {color: var(--White); font-size: 1.6rem; font-weight: 700;}
+.stat__ltr {text-transform: uppercase; font-family: 'lexend deca';}
+
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: var(--Soft-violet); text-decoration: none; }
